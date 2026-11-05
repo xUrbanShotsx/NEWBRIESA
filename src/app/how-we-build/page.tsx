@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/Sections";
 import { PageHeader } from "@/components/PageHeader";
-import { StepsBlock } from "@/components/Blocks";
+import { StepsBlock, FaqBlock } from "@/components/Blocks";
 
 export const metadata: Metadata = {
   title: "How we build",
@@ -12,10 +12,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="How we build" title={<>One team from first call to <span className="tape">launch</span> and beyond.</>}>
-        A short, predictable process. You see working software early and talk to the people writing it.
+      <PageHeader eyebrow="How we build" title={<>From a real problem to a <span className="tape">running</span> product.</>}>
+        One problem, one product, solved completely, then on to the next.
       </PageHeader>
       <StepsBlock />
+      <FaqBlock />
       <CtaBand />
     </>
   );

@@ -41,16 +41,15 @@ export function CtaBand() {
         className="relative overflow-hidden rounded-[2rem] bg-accent px-7 py-16 text-white sm:px-14 sm:py-20"
       >
         <h2 className="max-w-3xl font-display text-[clamp(2.2rem,5vw,4.2rem)] font-bold leading-[1] tracking-tight">
-          Got a process that still lives in spreadsheets?
+          Let's build what's next.
         </h2>
         <p className="mt-5 max-w-lg text-lg">
-          Tell us what the work looks like today. We will tell you what we would
-          build, how long it takes and what it costs.
+          Built in Australia, made for anywhere. Bring us a problem worth solving and we'll show you what a focused product can do.
         </p>
         <div className="mt-9">
           <Magnetic>
             <ButtonLink href={CONTACT_URL} variant="light">
-              Talk to Briesa
+              Start a Conversation
             </ButtonLink>
           </Magnetic>
         </div>

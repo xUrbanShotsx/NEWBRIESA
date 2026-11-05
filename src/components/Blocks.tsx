@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Eyebrow } from "./Sections";
 import { Icon } from "./Icons";
+import { CONTACT_URL } from "@/lib/site";
 
 export const products = [
   {
     name: "REAHUB",
     tag: "Real estate compliance",
-    body: "One file per property, trust accounts that reconcile, registers that fill from the work and an audit log nobody can edit.",
+    body: "Real estate agency software for NSW: property files, trust accounting, compliance registers, licence alerts and an audit log that cannot be edited, all on one record.",
     href: "https://reahub.com.au",
   },
   {
@@ -17,36 +18,131 @@ export const products = [
   },
 ];
 
-export const steps: [string, string, string][] = [
+export const markets = [
+  "Real Estate",
+  "Property Management",
+  "Compliance",
+  "Finance",
+  "Professional Services",
+  "Operations",
+  "Health",
+  "What's Next",
+];
+
+const whatWeDo: [string, string][] = [
+  [
+    "Micro-SaaS Products",
+    "We find one costly problem in an industry and build the product that removes it, end to end.",
+  ],
+  [
+    "AI That Does the Work",
+    "Assistants grounded in your own records that answer, draft and flag in context, not generic chat.",
+  ],
+  [
+    "Compliance by Design",
+    "Audit trails, access control and the records regulators ask for, built in from the first release.",
+  ],
+  [
+    "One Shared Platform",
+    "Every product runs on the same foundation: sign-in, billing, data and deploys. So the next one ships faster.",
+  ],
+];
+
+const steps: [string, string, string][] = [
   [
     "01",
-    "Scope",
-    "We sit with the people doing the work and write down what actually happens, including the spreadsheet nobody admits to.",
+    "Find",
+    "We start inside an industry, with the people doing the work, until we can name the problem precisely.",
   ],
   [
     "02",
     "Build",
-    "Small releases every week. You use real software from the first fortnight, not a deck about it.",
+    "A small team ships a working product in weeks on our shared platform. Software, not slide decks.",
   ],
   [
     "03",
-    "Ship",
-    "We launch it, move your people onto it and fix what the first month turns up.",
+    "Launch",
+    "Real customers and real data from the first release. We measure what people do, not what they say.",
   ],
   [
     "04",
-    "Run",
-    "We keep it running, patched and improving. The team that built it is the team that answers.",
+    "Compound",
+    "Every product strengthens the platform underneath it, so each one after ships faster and better.",
   ],
 ];
+
+const faqs: [string, string][] = [
+  [
+    "What is Briesa?",
+    "Briesa is a software studio that builds micro-SaaS: focused products that each solve one problem for one kind of business, completely. We design, build and run every product ourselves.",
+  ],
+  [
+    "What is micro-SaaS?",
+    "Software as a service with a deliberately narrow focus. Instead of one platform that does everything adequately, a micro-SaaS product does one job exceptionally well, for the people who live with that job every day.",
+  ],
+  [
+    "What have you built?",
+    "Our first product is REAHUB, real estate agency software for NSW: property files, trust accounting, compliance registers, licence alerts and an audit log that cannot be edited, all on one record.",
+  ],
+  [
+    "Can I bring you a problem?",
+    "Please do. If your industry still runs on spreadsheets, inboxes and good intentions, there may be a product in it. Tell us about it and we'll tell you honestly whether it's one we should build.",
+  ],
+];
+
+export function MarketsStrip() {
+  return (
+    <div className="relative overflow-hidden bg-[linear-gradient(110deg,oklch(0.19_0.05_262),oklch(0.3_0.11_266)_55%,oklch(0.2_0.06_262))] py-5 font-mono text-xs uppercase tracking-[0.18em] text-white">
+      <div
+        aria-hidden="true"
+        className="glow-x pointer-events-none absolute h-24 w-72 rounded-full bg-accent/70 blur-3xl"
+      />
+      <p className="sr-only">Markets we build for: {markets.join(", ")}</p>
+      <ul className="marquee flex w-max gap-10 whitespace-nowrap" aria-hidden="true">
+        {[0, 1, 2, 3].flatMap((k) =>
+          markets.map((t) => (
+            <li key={`${k}-${t}`} className="flex items-center gap-10">
+              {t}
+              <span className="text-accent">/</span>
+            </li>
+          )),
+        )}
+      </ul>
+    </div>
+  );
+}
+
+export function WhatWeDoBlock() {
+  return (
+    <section className="mx-auto mt-28 max-w-6xl px-5 sm:px-8">
+      <div data-reveal>
+        <Eyebrow>What we do</Eyebrow>
+        <h2 className="mt-5 max-w-3xl font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-tight">
+          One studio. Many focused products.
+        </h2>
+      </div>
+      <ul data-stagger className="mt-12 grid gap-x-10 gap-y-2 md:grid-cols-2">
+        {whatWeDo.map(([t, b], i) => (
+          <li key={t} className="row-hover grid grid-cols-[3rem_1fr] gap-3 border-t border-line py-7">
+            <span className="font-mono text-sm text-accent">0{i + 1}</span>
+            <div>
+              <h3 className="font-display text-2xl font-bold">{t}</h3>
+              <p className="mt-2 max-w-md text-ink-soft">{b}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
 
 export function ProductsBlock() {
   return (
     <section className="mx-auto mt-28 max-w-6xl px-5 sm:px-8">
       <div data-reveal>
-        <Eyebrow>Our products</Eyebrow>
+        <Eyebrow>What we have built</Eyebrow>
         <h2 className="mt-5 max-w-3xl font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-tight">
-          Two products in market, both built for people with an audit coming.
+          Focused products, each solving one problem completely.
         </h2>
       </div>
       <div data-stagger className="mt-12 grid gap-6 md:grid-cols-2">
@@ -73,14 +169,64 @@ export function ProductsBlock() {
   );
 }
 
+export function ThesisBlock() {
+  return (
+    <section className="mx-auto mt-28 grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1fr]">
+      <div data-reveal>
+        <Eyebrow>Our thesis</Eyebrow>
+        <h2 className="mt-5 font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-tight">
+          Small software, solved completely.
+        </h2>
+        <p className="mt-6 max-w-md text-ink-soft">
+          Every Briesa product starts from the same belief: the best software
+          disappears into the work it was built for.
+        </p>
+        <p className="mt-8 font-display text-7xl font-bold text-accent">1</p>
+        <p className="font-mono text-xs uppercase tracking-wider text-ink-soft">
+          Problem per product. Solved completely.
+        </p>
+      </div>
+      <div data-stagger className="space-y-6">
+        {[
+          [
+            "The Briesa thesis",
+            "The future of software isn't one platform that does everything adequately. It's many focused products that each do one thing exceptionally well.",
+            "Why we build micro-SaaS",
+          ],
+          [
+            "Principle 01",
+            "Software built for one industry's rules beats a generic tool configured to fit them.",
+            "Depth over breadth",
+          ],
+          [
+            "Principle 02",
+            "Small products ship often, listen closely and compound. Shipping is a habit, not an event.",
+            "Momentum over size",
+          ],
+        ].map(([k, q, t]) => (
+          <figure key={k} className="rounded-[1.75rem] border border-line bg-surface p-7">
+            <p className="eyebrow">{k}</p>
+            <h3 className="mt-3 font-display text-xl font-bold">{t}</h3>
+            <blockquote className="mt-3 text-ink-soft">&ldquo;{q}&rdquo;</blockquote>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function StepsBlock() {
   return (
     <section className="mx-auto mt-20 grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-14 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr]">
       <div data-reveal>
-        <Eyebrow>The process</Eyebrow>
+        <Eyebrow>How we build</Eyebrow>
         <h2 className="mt-5 font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-tight">
-          Four steps, one team, no hand-offs.
+          From a real problem to a running product.
         </h2>
+        <p className="mt-6 max-w-md text-ink-soft">
+          Big software tries to do everything for everyone. We do the opposite:
+          one problem, one product, solved completely, then on to the next.
+        </p>
       </div>
       <ol data-stagger className="divide-y divide-line border-y border-line">
         {steps.map(([n, title, body]) => (
@@ -97,17 +243,33 @@ export function StepsBlock() {
   );
 }
 
-export function StudioBlock() {
+export function FaqBlock() {
   return (
-    <section className="mx-auto mt-20 max-w-6xl px-5 sm:px-8">
-      <div data-reveal className="max-w-3xl">
-        <Eyebrow>The studio</Eyebrow>
-        <p className="mt-5 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-snug tracking-tight">
-          Briesa is a small software company. We run the products ourselves, so
-          we know what it costs to keep software alive after launch, and we
-          price your build with that in mind.
-        </p>
+    <section className="mx-auto mt-28 max-w-4xl px-5 sm:px-8">
+      <div data-reveal>
+        <Eyebrow>FAQ</Eyebrow>
+        <h2 className="mt-5 font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-tight">
+          Frequently asked questions
+        </h2>
       </div>
+      <div className="mt-10 border-b border-line">
+        {faqs.map(([q, a]) => (
+          <details key={q} className="group border-t border-line py-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between font-display text-xl font-semibold">
+              {q}
+              <span aria-hidden="true" className="text-accent transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <p className="mt-3 max-w-2xl text-ink-soft">{a}</p>
+          </details>
+        ))}
+      </div>
+      <p className="mt-6 text-ink-soft">
+        Have more questions?{" "}
+        <Link href={CONTACT_URL} className="font-semibold text-ink underline">
+          Get in touch
+        </Link>
+        .
+      </p>
     </section>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/Sections";
 import { PageHeader } from "@/components/PageHeader";
-import { StudioBlock } from "@/components/Blocks";
+import { ThesisBlock, FaqBlock } from "@/components/Blocks";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -12,10 +12,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="The studio" title={<>A small team that <span className="tape">owns</span> what it ships.</>}>
-        Briesa builds its own products and client software from the same codebase habits, tools and people.
+      <PageHeader eyebrow="The studio" title={<>Small software, <span className="tape">solved</span> completely.</>}>
+        Briesa is a micro-SaaS studio. Designed and built in Australia: focused, AI-native, secure by design, built to last.
       </PageHeader>
-      <StudioBlock />
+      <ThesisBlock />
+      <FaqBlock />
       <CtaBand />
     </>
   );

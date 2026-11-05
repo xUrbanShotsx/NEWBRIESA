@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/Sections";
 import { PageHeader } from "@/components/PageHeader";
-import { ProductsBlock } from "@/components/Blocks";
+import { ProductsBlock, WhatWeDoBlock } from "@/components/Blocks";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -12,10 +12,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="Our products" title={<>Software we build, run and stand behind.</>}>
-        REAHUB and WHSCOMPLY are Briesa products. They show how we build: narrow scope, real workflows, software that stays in use.
+      <PageHeader eyebrow="Our products" title={<>Focused software, <span className="tape">solved</span> completely.</>}>
+        Each Briesa product removes one costly problem for one kind of business, and runs on the same shared platform.
       </PageHeader>
       <ProductsBlock />
+      <WhatWeDoBlock />
       <CtaBand />
     </>
   );

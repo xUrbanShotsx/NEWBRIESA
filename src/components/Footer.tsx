@@ -16,7 +16,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 pt-16 sm:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <p className="max-w-sm font-display text-2xl font-semibold leading-snug">
-            Software that does the work, built by people who stay.
+            Small software, solved completely.
           </p>
           <ul className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm">
             {items.map(([label, href]) => (
@@ -39,7 +39,7 @@ export function Footer() {
         </p>
       </div>
       <div className="border-t border-line py-5 text-center font-mono text-xs uppercase tracking-widest text-ink/60">
-        © 2026 Briesa. All rights reserved.
+        © 2026 Briesa. Designed and built in Australia.
       </div>
     </footer>
   );

@@ -1,8 +1,6 @@
-import Link from "next/link";
 import { ButtonLink, CtaBand, Eyebrow } from "@/components/Sections";
-import { ProductsBlock } from "@/components/Blocks";
+import { FaqBlock, MarketsStrip, ProductsBlock, StepsBlock, ThesisBlock, WhatWeDoBlock } from "@/components/Blocks";
 import { Magnetic } from "@/components/Magnetic";
-import { Icon } from "@/components/Icons";
 import { CONTACT_URL } from "@/lib/site";
 
 const rows: [string, string, string][] = [
@@ -18,26 +16,25 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-14 px-5 pb-20 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-[1fr_0.9fr]">
           <div>
             <div data-load>
-              <Eyebrow>Software development company</Eyebrow>
+              <Eyebrow>Micro-SaaS studio</Eyebrow>
             </div>
             <h1
               data-load
               className="mt-6 font-display text-[clamp(2.7rem,6.4vw,5.7rem)] font-bold leading-[0.98] tracking-tight"
             >
-              Software that does the <span className="tape">work</span>, not
-              just the demo.
+              We build the future of <span className="tape">software</span>.
             </h1>
             <p data-load className="mt-7 max-w-lg text-lg text-ink-soft">
-              Briesa designs, builds and runs software for businesses with real
-              processes to get right. We build our own products and we build
-              yours.
+              Briesa is a micro-SaaS studio. We build focused software products
+              that each solve one problem completely, then keep making them
+              better. Designed and built in Australia.
             </p>
             <div data-load className="mt-9 flex flex-wrap items-center gap-4">
               <Magnetic>
-                <ButtonLink href={CONTACT_URL}>Start a project</ButtonLink>
+                <ButtonLink href={CONTACT_URL}>Start a Conversation</ButtonLink>
               </Magnetic>
-              <ButtonLink href="/#products" variant="ghost">
-                See what we have built
+              <ButtonLink href="/products" variant="ghost">
+                See Our Products
               </ButtonLink>
             </div>
           </div>
@@ -74,47 +71,12 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="relative overflow-hidden bg-[linear-gradient(110deg,oklch(0.19_0.05_262),oklch(0.3_0.11_266)_55%,oklch(0.2_0.06_262))] py-5 font-mono text-xs uppercase tracking-[0.18em] text-white">
-        <div
-          aria-hidden="true"
-          className="glow-x pointer-events-none absolute h-24 w-72 rounded-full bg-accent/70 blur-3xl"
-        />
-        <ul
-          className="marquee flex w-max gap-10 whitespace-nowrap"
-          aria-label="What Briesa does"
-        >
-          {[0, 1, 2, 3].flatMap((k) =>
-            [
-              "Web apps",
-              "Internal tools",
-              "Compliance software",
-              "Integrations",
-              "Product design",
-              "Ongoing support",
-            ].map((t) => (
-              <li
-                key={`${k}-${t}`}
-                className="flex items-center gap-10"
-                aria-hidden={k > 0}
-              >
-                {t}
-                <span className="text-accent">/</span>
-              </li>
-            )),
-          )}
-        </ul>
-      </div>
-
+      <MarketsStrip />
+      <WhatWeDoBlock />
+      <ThesisBlock />
       <ProductsBlock />
-      <p className="mx-auto mt-10 flex max-w-6xl flex-wrap gap-x-8 gap-y-3 px-5 font-semibold sm:px-8">
-        <Link href="/how-we-build" className="inline-flex items-center gap-2">
-          How we build <Icon name="arrow" className="h-4 w-4" />
-        </Link>
-        <Link href="/studio" className="inline-flex items-center gap-2">
-          The studio <Icon name="arrow" className="h-4 w-4" />
-        </Link>
-      </p>
-
+      <StepsBlock />
+      <FaqBlock />
       <CtaBand />
     </>
   );
