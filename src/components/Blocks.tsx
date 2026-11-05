@@ -92,7 +92,7 @@ const faqs: [string, string][] = [
 
 export function MarketsStrip() {
   return (
-    <div className="relative overflow-hidden bg-[linear-gradient(110deg,oklch(0.19_0.05_262),oklch(0.3_0.11_266)_55%,oklch(0.2_0.06_262))] py-5 font-mono text-xs uppercase tracking-[0.18em] text-white">
+    <div className="relative overflow-hidden bg-[linear-gradient(110deg,oklch(0.1_0_0),oklch(0.24_0_0)_55%,oklch(0.12_0_0))] py-5 font-mono text-xs uppercase tracking-[0.18em] text-white">
       <div
         aria-hidden="true"
         className="glow-x pointer-events-none absolute h-24 w-72 rounded-full bg-accent/70 blur-3xl"

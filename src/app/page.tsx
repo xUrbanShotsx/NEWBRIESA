@@ -41,7 +41,7 @@ export default function Home() {
 
           <div data-load>
             <div data-parallax="6">
-              <div className="float rounded-[1.75rem] bg-[linear-gradient(140deg,oklch(0.19_0.05_262),oklch(0.3_0.11_266))] p-4 shadow-[0_40px_90px_-40px_oklch(0.24_0.05_258/0.7)] sm:p-6">
+              <div className="float rounded-[1.75rem] bg-[linear-gradient(140deg,oklch(0.1_0_0),oklch(0.26_0_0))] p-4 shadow-[0_40px_90px_-40px_oklch(0_0_0/0.7)] sm:p-6">
                 <div className="rounded-2xl bg-surface p-5 text-ink">
                   <p className="eyebrow">Studio board</p>
                   <ul className="mt-4 divide-y divide-line">

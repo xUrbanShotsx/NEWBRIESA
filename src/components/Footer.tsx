@@ -12,7 +12,7 @@ const items: [string, string][] = [
 
 export function Footer() {
   return (
-    <footer className="mt-28 overflow-hidden border-t border-line bg-[oklch(0.12_0.03_262)] text-ink">
+    <footer className="mt-28 overflow-hidden border-t border-line bg-[oklch(0.1_0_0)] text-ink">
       <div className="mx-auto max-w-6xl px-5 pt-16 sm:px-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <p className="max-w-sm font-display text-2xl font-semibold leading-snug">
