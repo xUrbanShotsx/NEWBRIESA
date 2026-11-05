@@ -5,4 +5,4 @@ export const SITE_NAME = "Briesa";
 export const SITE_TAGLINE = "Building the future of software";
 export const SITE_DESCRIPTION =
   "Briesa is a micro-SaaS studio. We build focused software products that each solve one problem completely, then keep making them better.";
-export const CONTACT_URL = "https://briesa.com/contact";
+export const CONTACT_URL = "/contact";
