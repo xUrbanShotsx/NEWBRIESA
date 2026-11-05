@@ -1,29 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Icon } from "./Icons";
 import { CONTACT_URL } from "@/lib/site";
 
 const links = [
-  { href: "/#products", label: "Products" },
-  { href: "/#approach", label: "How we build" },
-  { href: "/#studio", label: "Studio" },
+  { href: "/products", label: "Products" },
+  { href: "/how-we-build", label: "How we build" },
+  { href: "/studio", label: "Studio" },
 ];
 
 export function Logo({ className = "h-9" }: { className?: string }) {
   return (
-    <span className="flex items-center gap-2.5">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo-mark.svg" alt="" className={`${className} w-auto`} />
-      <span className="font-display text-2xl font-bold tracking-tight">
-        Briesa
-      </span>
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/logo.svg" alt="Briesa" className={`${className} w-auto`} />
   );
 }
 
 export function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,7 +40,7 @@ export function Navbar() {
       <div
         className={`mx-auto transition-all duration-500 ease-out ${
           pill
-            ? "mt-3 max-w-4xl rounded-full border border-line bg-surface/80 shadow-[0_12px_40px_-12px_oklch(0.24_0.05_258/0.28)] backdrop-blur-md"
+            ? "mt-3 max-w-4xl rounded-full border border-line bg-surface/80 shadow-[0_12px_40px_-12px_oklch(0_0_0/0.5)] backdrop-blur-md"
             : "mt-0 max-w-[100vw] rounded-none border border-transparent border-b-line bg-surface shadow-none"
         }`}
       >
@@ -54,7 +51,7 @@ export function Navbar() {
           }`}
         >
           <Link href="/" onClick={() => setOpen(false)} aria-label="Briesa home">
-            <Logo className={pill ? "h-7" : "h-8 sm:h-10"} />
+            <Logo className={pill ? "h-9" : "h-11 sm:h-14"} />
           </Link>
 
           <ul className="hidden items-center gap-8 md:flex">
@@ -62,7 +59,8 @@ export function Navbar() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="relative py-1 font-medium after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-200 hover:after:scale-x-100"
+                  aria-current={pathname === l.href ? "page" : undefined}
+                  className={`relative py-1 font-medium after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:bg-accent after:transition-transform after:duration-200 ${pathname === l.href ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"}`}
                 >
                   {l.label}
                 </Link>

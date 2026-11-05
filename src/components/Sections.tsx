@@ -19,7 +19,7 @@ export function ButtonLink({
 }) {
   const styles = {
     ink: "bg-ink text-bg hover:bg-ink/85",
-    light: "bg-bg text-ink hover:bg-surface",
+    light: "bg-white text-[#0e1230] hover:bg-white/90",
     ghost: "border border-ink/30 hover:border-ink hover:bg-tint",
   }[variant];
   return (
@@ -38,7 +38,7 @@ export function CtaBand() {
     <section className="mx-auto mt-28 max-w-6xl px-5 sm:px-8">
       <div
         data-reveal
-        className="relative overflow-hidden rounded-[2rem] bg-accent px-7 py-16 text-bg sm:px-14 sm:py-20"
+        className="relative overflow-hidden rounded-[2rem] bg-accent px-7 py-16 text-white sm:px-14 sm:py-20"
       >
         <h2 className="max-w-3xl font-display text-[clamp(2.2rem,5vw,4.2rem)] font-bold leading-[1] tracking-tight">
           Got a process that still lives in spreadsheets?
