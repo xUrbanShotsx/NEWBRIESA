@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, IBM_Plex_Mono } from "next/font/google";
 import { Motion } from "@/components/Motion";
+import { Fx } from "@/components/Fx";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <JsonLd data={organization} />
         <Motion />
+        <Fx />
         <Navbar />
         <main className="flex-1 pt-20 sm:pt-24">{children}</main>
         <Footer />

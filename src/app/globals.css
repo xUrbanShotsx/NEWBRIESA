@@ -317,3 +317,80 @@ main .grid > * {
   border-left: 0;
   border-top: 0;
 }
+
+/* cursor spotlight, driven by Fx.tsx */
+.spot {
+  background-image: radial-gradient(
+    380px circle at var(--mx, -999px) var(--my, -999px),
+    oklch(1 0 0 / 0.07),
+    transparent 65%
+  );
+}
+
+/* auto-advancing tab progress and bar fill */
+.tab-progress {
+  animation: tab-progress linear forwards;
+}
+@keyframes tab-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.bar-fill {
+  animation: bar-fill 0.9s 0.1s both cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes bar-fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* platform diagram: a pulse travels down the connector */
+.pulse-line {
+  position: relative;
+  overflow: hidden;
+}
+.pulse-line::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 40%;
+  background: linear-gradient(transparent, #fff, transparent);
+  animation: pulse-down 1.8s ease-in-out infinite;
+}
+@keyframes pulse-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(250%);
+  }
+}
+
+/* soft accent glow behind the hero */
+.hero-glow {
+  position: absolute;
+  top: -10rem;
+  right: -8rem;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(
+    closest-side,
+    oklch(0.6 0.2 268 / 0.28),
+    transparent
+  );
+  filter: blur(20px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-progress,
+  .bar-fill,
+  .pulse-line::after {
+    animation: none;
+  }
+}

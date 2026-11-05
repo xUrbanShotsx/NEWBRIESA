@@ -1,13 +1,13 @@
 import { ButtonLink, CtaBand, Eyebrow } from "@/components/Sections";
 import {
   FaqBlock,
-  MarketsStrip,
   ProductsBlock,
   StepsBlock,
   ThesisBlock,
   PlatformBlock,
   WhatWeDoBlock,
 } from "@/components/Blocks";
+import { Terminal } from "@/components/Terminal";
 import { Magnetic } from "@/components/Magnetic";
 import { CONTACT_URL } from "@/lib/site";
 
@@ -16,6 +16,7 @@ export default function Home() {
     <>
       <section className="relative overflow-hidden">
         <div aria-hidden="true" className="grid-bg" />
+        <div aria-hidden="true" className="hero-glow" />
         <div className="relative mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-14 px-5 pb-20 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-[1fr_0.9fr]">
           <div>
             <div data-load>
@@ -72,23 +73,7 @@ export default function Home() {
                       briesa / studio
                     </span>
                   </div>
-                  <pre className="overflow-x-auto p-5 font-mono text-[0.78rem] leading-7 sm:text-sm">
-                    {`$ briesa products --list
-`}
-                    <span className="text-accent">reahub</span>
-                    {`     real estate compliance   live
-`}
-                    <span className="text-accent">whscomply</span>
-                    {`  work health & safety     live
-`}
-                    <span className="text-ink-soft">next</span>
-                    {`       one problem, solved       open
-
-$ briesa platform --shared
-sign-in  billing  data  deploys  ok
-$ `}
-                    <span className="cursor" />
-                  </pre>
+                  <Terminal />
                 </div>
                 <p className="mt-3 font-mono text-[0.65rem] uppercase tracking-widest text-ink-soft">
                   Illustrative terminal
@@ -99,7 +84,6 @@ $ `}
         </div>
       </section>
 
-      <MarketsStrip />
       <WhatWeDoBlock />
       <PlatformBlock />
       <ThesisBlock />

@@ -100,31 +100,6 @@ const faqs: [string, string][] = [
   ],
 ];
 
-export function MarketsStrip() {
-  return (
-    <div className="relative overflow-hidden bg-[linear-gradient(110deg,oklch(0.1_0_0),oklch(0.24_0_0)_55%,oklch(0.12_0_0))] py-5 font-mono text-xs uppercase tracking-[0.18em] text-white">
-      <div
-        aria-hidden="true"
-        className="glow-x pointer-events-none absolute h-24 w-72 rounded-full bg-accent/70 blur-3xl"
-      />
-      <p className="sr-only">Markets we build for: {markets.join(", ")}</p>
-      <ul
-        className="marquee flex w-max gap-10 whitespace-nowrap"
-        aria-hidden="true"
-      >
-        {[0, 1, 2, 3].flatMap((k) =>
-          markets.map((t) => (
-            <li key={`${k}-${t}`} className="flex items-center gap-10">
-              {t}
-              <span className="text-accent">/</span>
-            </li>
-          )),
-        )}
-      </ul>
-    </div>
-  );
-}
-
 export function WhatWeDoBlock() {
   return (
     <section className="mx-auto mt-28 max-w-6xl px-5 sm:px-8">
@@ -138,7 +113,7 @@ export function WhatWeDoBlock() {
         {whatWeDo.map(([t, b], i) => (
           <li
             key={t}
-            className="row-hover grid grid-cols-[3rem_1fr] gap-3 border-t border-line py-7"
+            className="spot row-hover grid grid-cols-[3rem_1fr] gap-3 border-t border-line py-7"
           >
             <span className="font-mono text-sm text-accent">0{i + 1}</span>
             <div>
@@ -166,7 +141,7 @@ export function ProductsBlock() {
           <Link
             key={p.name}
             href={p.href}
-            className="lift ticks group flex flex-col justify-between rounded-xl border border-line bg-surface p-7 sm:p-9"
+            className="spot lift ticks group flex flex-col justify-between rounded-xl border border-line bg-surface p-7 sm:p-9"
           >
             <div>
               <p className="eyebrow">{p.tag}</p>
@@ -332,7 +307,7 @@ export function PlatformBlock() {
             {products.map((p) => (
               <div
                 key={p.name}
-                className="rounded-lg border border-accent/60 bg-surface p-4 font-mono text-sm"
+                className="spot rounded-lg border border-accent/60 bg-surface p-4 font-mono text-sm"
               >
                 {p.name.toLowerCase()}
               </div>
@@ -341,12 +316,15 @@ export function PlatformBlock() {
           <div className="mt-3 rounded-lg border border-dashed border-line bg-surface/60 p-4 text-center font-mono text-sm text-ink-soft">
             next product
           </div>
-          <div className="mx-auto h-6 w-px bg-accent" aria-hidden="true" />
+          <div
+            className="pulse-line mx-auto h-8 w-px bg-accent/40"
+            aria-hidden="true"
+          />
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {layers.map((l) => (
               <div
                 key={l}
-                className="rounded-lg border border-line bg-tint p-3 text-center font-mono text-xs uppercase tracking-wider"
+                className="spot rounded-lg border border-line bg-tint p-3 text-center transition-colors hover:border-accent font-mono text-xs uppercase tracking-wider"
               >
                 {l}
               </div>
