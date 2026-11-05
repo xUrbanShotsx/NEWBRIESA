@@ -44,7 +44,8 @@ export function CtaBand() {
           Let's build what's next.
         </h2>
         <p className="mt-5 max-w-lg text-lg">
-          Built in Australia, made for anywhere. Bring us a problem worth solving and we'll show you what a focused product can do.
+          Built in Australia, made for anywhere. Bring us a problem worth
+          solving and we'll show you what a focused product can do.
         </p>
         <div className="mt-9">
           <Magnetic>

@@ -12,7 +12,15 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader eyebrow="How we build" title={<>From a real problem to a <span className="tape">running</span> product.</>}>
+      <PageHeader
+        eyebrow="How we build"
+        title={
+          <>
+            From a real problem to a <span className="tape">running</span>{" "}
+            product.
+          </>
+        }
+      >
         One problem, one product, solved completely, then on to the next.
       </PageHeader>
       <StepsBlock />

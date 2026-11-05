@@ -50,7 +50,11 @@ export function Navbar() {
             pill ? "h-16 px-6" : "h-20 px-2 sm:h-24 sm:px-8"
           }`}
         >
-          <Link href="/" onClick={() => setOpen(false)} aria-label="Briesa home">
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            aria-label="Briesa home"
+          >
             <Logo className={pill ? "h-9" : "h-11 sm:h-14"} />
           </Link>
 

@@ -9,12 +9,22 @@ export const products = [
     tag: "Real estate compliance",
     body: "Real estate agency software for NSW: property files, trust accounting, compliance registers, licence alerts and an audit log that cannot be edited, all on one record.",
     href: "https://reahub.com.au",
+    spec: [
+      ["market", "NSW real estate"],
+      ["status", "live"],
+      ["platform", "briesa"],
+    ],
   },
   {
     name: "WHSCOMPLY",
     tag: "Work health and safety",
     body: "The records, checks and sign-offs a business needs to show its WHS duties are met, kept in one place and ready to export.",
     href: "https://whscomply.com",
+    spec: [
+      ["market", "work health & safety"],
+      ["status", "live"],
+      ["platform", "briesa"],
+    ],
   },
 ];
 
@@ -98,7 +108,10 @@ export function MarketsStrip() {
         className="glow-x pointer-events-none absolute h-24 w-72 rounded-full bg-accent/70 blur-3xl"
       />
       <p className="sr-only">Markets we build for: {markets.join(", ")}</p>
-      <ul className="marquee flex w-max gap-10 whitespace-nowrap" aria-hidden="true">
+      <ul
+        className="marquee flex w-max gap-10 whitespace-nowrap"
+        aria-hidden="true"
+      >
         {[0, 1, 2, 3].flatMap((k) =>
           markets.map((t) => (
             <li key={`${k}-${t}`} className="flex items-center gap-10">
@@ -123,7 +136,10 @@ export function WhatWeDoBlock() {
       </div>
       <ul data-stagger className="mt-12 grid gap-x-10 gap-y-2 md:grid-cols-2">
         {whatWeDo.map(([t, b], i) => (
-          <li key={t} className="row-hover grid grid-cols-[3rem_1fr] gap-3 border-t border-line py-7">
+          <li
+            key={t}
+            className="row-hover grid grid-cols-[3rem_1fr] gap-3 border-t border-line py-7"
+          >
             <span className="font-mono text-sm text-accent">0{i + 1}</span>
             <div>
               <h3 className="font-display text-2xl font-bold">{t}</h3>
@@ -150,7 +166,7 @@ export function ProductsBlock() {
           <Link
             key={p.name}
             href={p.href}
-            className="lift group flex flex-col justify-between rounded-[1.75rem] border border-line bg-surface p-7 sm:p-9"
+            className="lift ticks group flex flex-col justify-between rounded-xl border border-line bg-surface p-7 sm:p-9"
           >
             <div>
               <p className="eyebrow">{p.tag}</p>
@@ -158,6 +174,14 @@ export function ProductsBlock() {
                 {p.name}
               </h3>
               <p className="mt-4 max-w-md text-ink-soft">{p.body}</p>
+              <dl className="mt-6 divide-y divide-line border-y border-line font-mono text-xs">
+                {p.spec.map(([k, v]) => (
+                  <div key={k} className="flex justify-between py-2">
+                    <dt className="text-ink-soft">{k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
             <span className="mt-10 inline-flex items-center gap-2 font-semibold">
               Visit {p.name} <Icon name="arrow" className="h-4 w-4" />
@@ -204,10 +228,15 @@ export function ThesisBlock() {
             "Momentum over size",
           ],
         ].map(([k, q, t]) => (
-          <figure key={k} className="rounded-[1.75rem] border border-line bg-surface p-7">
+          <figure
+            key={k}
+            className="rounded-xl border border-line bg-surface p-7"
+          >
             <p className="eyebrow">{k}</p>
             <h3 className="mt-3 font-display text-xl font-bold">{t}</h3>
-            <blockquote className="mt-3 text-ink-soft">&ldquo;{q}&rdquo;</blockquote>
+            <blockquote className="mt-3 text-ink-soft">
+              &ldquo;{q}&rdquo;
+            </blockquote>
           </figure>
         ))}
       </div>
@@ -230,7 +259,10 @@ export function StepsBlock() {
       </div>
       <ol data-stagger className="divide-y divide-line border-y border-line">
         {steps.map(([n, title, body]) => (
-          <li key={n} className="row-hover grid grid-cols-[3.5rem_1fr] gap-4 py-7">
+          <li
+            key={n}
+            className="row-hover grid grid-cols-[3.5rem_1fr] gap-4 py-7"
+          >
             <span className="font-mono text-sm text-accent">{n}</span>
             <div>
               <h3 className="font-display text-2xl font-bold">{title}</h3>
@@ -257,7 +289,12 @@ export function FaqBlock() {
           <details key={q} className="group border-t border-line py-5">
             <summary className="flex cursor-pointer list-none items-center justify-between font-display text-xl font-semibold">
               {q}
-              <span aria-hidden="true" className="text-accent transition-transform group-open:rotate-45">+</span>
+              <span
+                aria-hidden="true"
+                className="text-accent transition-transform group-open:rotate-45"
+              >
+                +
+              </span>
             </summary>
             <p className="mt-3 max-w-2xl text-ink-soft">{a}</p>
           </details>
@@ -270,6 +307,96 @@ export function FaqBlock() {
         </Link>
         .
       </p>
+    </section>
+  );
+}
+
+export function PlatformBlock() {
+  const layers = ["Sign-in", "Billing", "Data", "Deploys"];
+  return (
+    <section className="mx-auto mt-28 max-w-6xl px-5 sm:px-8">
+      <div data-reveal className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <Eyebrow>The platform</Eyebrow>
+          <h2 className="mt-5 font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-tight">
+            One foundation under every product.
+          </h2>
+          <p className="mt-6 max-w-md text-ink-soft">
+            Every product runs on the same sign-in, billing, data and deploys.
+            We solve those once, so each new product starts at the problem, not
+            the plumbing.
+          </p>
+        </div>
+        <div className="dots rounded-xl border border-line p-5 sm:p-8">
+          <div className="grid grid-cols-2 gap-3">
+            {products.map((p) => (
+              <div
+                key={p.name}
+                className="rounded-lg border border-accent/60 bg-surface p-4 font-mono text-sm"
+              >
+                {p.name.toLowerCase()}
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg border border-dashed border-line bg-surface/60 p-4 text-center font-mono text-sm text-ink-soft">
+            next product
+          </div>
+          <div className="mx-auto h-6 w-px bg-accent" aria-hidden="true" />
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {layers.map((l) => (
+              <div
+                key={l}
+                className="rounded-lg border border-line bg-tint p-3 text-center font-mono text-xs uppercase tracking-wider"
+              >
+                {l}
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-widest text-ink-soft">
+            Shared platform
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function BuildersBlock() {
+  const rows: [string, string][] = [
+    ["who", "A small team that designs, builds and runs every product itself"],
+    ["location", "Designed and built in Australia, made for anywhere"],
+    [
+      "cadence",
+      "A working product in weeks, then small releases that compound",
+    ],
+    ["feedback", "Real customers and real data from the first release"],
+    ["principle", "Secure by design, AI-native, built to last"],
+  ];
+  return (
+    <section className="mx-auto mt-28 max-w-6xl px-5 sm:px-8">
+      <div data-reveal className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <Eyebrow>Behind the software</Eyebrow>
+          <h2 className="mt-5 font-display text-[clamp(2rem,4.2vw,3.5rem)] font-bold leading-[1.02] tracking-tight">
+            The people who build it are the people who answer.
+          </h2>
+          <p className="mt-6 max-w-md text-ink-soft">
+            If you use a Briesa product, you should know who is behind it and
+            how they work. This is the short version.
+          </p>
+        </div>
+        <dl className="ticks rounded-xl border border-line bg-surface font-mono text-sm">
+          {rows.map(([k, v]) => (
+            <div
+              key={k}
+              className="grid grid-cols-[6.5rem_1fr] gap-4 border-b border-line p-4 last:border-0"
+            >
+              <dt className="text-accent">{k}</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </section>
   );
 }
